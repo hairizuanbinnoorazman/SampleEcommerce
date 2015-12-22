@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Sample Ecommerce</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_login">Login</string>
+
+    <string name="email">admin@admin.com</string>
+    <string name="pwd">admin</string>
+    <string name="title_activity_account">Account</string>
+    <string name="title_activity_product_details">ProductDetails</string>
+    <string name="title_activity_cart">Cart</string>
+    <string name="title_activity_personal_details">PersonalDetails</string>
+    <string name="title_activity_summary">Summary</string>
+    <string name="title_activity_thank_you">ThankYou</string>
+</resources>
