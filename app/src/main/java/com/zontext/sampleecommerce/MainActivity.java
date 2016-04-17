@@ -75,7 +75,7 @@ public class MainActivity extends Activity{
         //Container container = ContainerHolderSingleton.getContainerHolder().getContainer();
 
         Log.e("GTM Test", "start");
-        Log.e("GRADLE TEST", getString(R.string.AppBuild));
+        //Log.e("GRADLE TEST", getString(R.string.AppBuild));
         //Log.e("GTM Test", container.getContainerId());
         //Log.e("GTM Test", Long.toString(container.getLastRefreshTime()));
         //Log.e("GTM Test", Boolean.toString(container.isDefault()));
@@ -83,6 +83,12 @@ public class MainActivity extends Activity{
         DataLayer dataLayer = TagManager.getInstance(this).getDataLayer();
         dataLayer.push("openScreen", DataLayer.mapOf("screenName", screenName));
         tagManager.dispatch();
+
+        mixpanel.getPeople().identify("1234");
+        mixpanel.getPeople().set("Plan", "PREMIUM");
+        MixpanelAPI.People people = mixpanel.getPeople();
+        people.identify("1234");
+        people.initPushHandling("AIzaSyAMdcEuiS5HrT7sNJDSN4-mwe9MaCdc7vo");
 
 
         // Change the title of the app

@@ -2,15 +2,22 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zontext.sampleecommerce" >
 
+    <permission android:name="com.zontext.sampleecommerce.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+    <uses-permission android:name="com.zontext.sampleecommerce.permission.C2D_MESSAGE" />
+
+    <!-- For TagManager SDK -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-
-        <!-- For TagManager SDK -->
-        <uses-permission android:name="android.permission.INTERNET" />
-        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
         <activity
             android:name=".MainActivity"
@@ -61,6 +68,14 @@
             android:name=".ThankYou"
             android:label="@string/title_activity_thank_you" >
         </activity>
+        <receiver android:name="com.mixpanel.android.mpmetrics.GCMReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <category android:name="com.zontext.sampleecommerce" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
